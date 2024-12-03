@@ -1,0 +1,80 @@
+mysqld: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/mysql-server/build/bin/mysqld --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,842,094,205,618      instructions:u                                                        
+    44,362,617,883      L1-icache-load-misses:u                                               
+    17,724,219,690      iTLB-load-misses:u                                                    
+   136,080,839,948      branch-misses:u                                                       
+
+     236.486592076 seconds time elapsed
+
+    4220.048730000 seconds user
+    3085.183167000 seconds sys
+
+
+mysqld: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/mysql-server/build/bin/mysqld --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,756,143,903,042      instructions:u                                                        
+    43,523,167,175      L1-icache-load-misses:u                                               
+    16,762,017,434      iTLB-load-misses:u                                                    
+   134,511,154,716      branch-misses:u                                                       
+
+     236.023310014 seconds time elapsed
+
+    4168.868345000 seconds user
+    3053.009535000 seconds sys
+
+
+mysqld: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/mysql-server/build/bin/mysqld --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,790,805,183,590      instructions:u                                                        
+    43,662,820,217      L1-icache-load-misses:u                                               
+    16,767,832,893      iTLB-load-misses:u                                                    
+   134,950,955,225      branch-misses:u                                                       
+
+     236.085071055 seconds time elapsed
+
+    4194.028296000 seconds user
+    3056.416974000 seconds sys
+
+
+mysqld: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/mysql-server/build/bin/mysqld --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,794,380,411,395      instructions:u                                                        
+    43,500,129,366      L1-icache-load-misses:u                                               
+    16,928,809,958      iTLB-load-misses:u                                                    
+   135,397,954,594      branch-misses:u                                                       
+
+     236.010136189 seconds time elapsed
+
+    4207.154906000 seconds user
+    3058.665589000 seconds sys
+
+
+mysqld: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/mysql-server/build/bin/mysqld --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,791,359,957,677      instructions:u                                                        
+    43,644,293,907      L1-icache-load-misses:u                                               
+    17,051,407,039      iTLB-load-misses:u                                                    
+   134,732,721,629      branch-misses:u                                                       
+
+     236.239750263 seconds time elapsed
+
+    4173.520715000 seconds user
+    3080.881352000 seconds sys
+
+

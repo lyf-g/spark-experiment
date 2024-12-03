@@ -1,0 +1,80 @@
+mysqld.bolt.hotness.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hotness.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hotness.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,942,655,234,111      instructions:u                                                        
+    23,611,955,570      L1-icache-load-misses:u                                               
+     3,541,081,365      iTLB-load-misses:u                                                    
+    97,323,775,973      branch-misses:u                                                       
+
+     236.121547151 seconds time elapsed
+
+    3648.703831000 seconds user
+    3243.542740000 seconds sys
+
+
+mysqld.bolt.hotness.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hotness.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hotness.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,913,213,168,103      instructions:u                                                        
+    23,553,670,323      L1-icache-load-misses:u                                               
+     3,540,821,709      iTLB-load-misses:u                                                    
+    97,601,122,832      branch-misses:u                                                       
+
+     237.016421725 seconds time elapsed
+
+    3638.592670000 seconds user
+    3242.606449000 seconds sys
+
+
+mysqld.bolt.hotness.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hotness.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hotness.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,924,084,421,544      instructions:u                                                        
+    23,208,450,627      L1-icache-load-misses:u                                               
+     3,539,584,901      iTLB-load-misses:u                                                    
+    97,219,826,787      branch-misses:u                                                       
+
+     235.993646456 seconds time elapsed
+
+    3650.016826000 seconds user
+    3231.848186000 seconds sys
+
+
+mysqld.bolt.hotness.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hotness.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hotness.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,915,331,607,287      instructions:u                                                        
+    25,848,740,543      L1-icache-load-misses:u                                               
+     3,459,827,783      iTLB-load-misses:u                                                    
+    98,416,984,143      branch-misses:u                                                       
+
+     236.016652883 seconds time elapsed
+
+    3661.606427000 seconds user
+    3226.743069000 seconds sys
+
+
+mysqld.bolt.hotness.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hotness.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hotness.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,967,339,547,744      instructions:u                                                        
+    23,408,621,726      L1-icache-load-misses:u                                               
+     3,598,681,954      iTLB-load-misses:u                                                    
+    97,492,206,713      branch-misses:u                                                       
+
+     236.087141003 seconds time elapsed
+
+    3647.067215000 seconds user
+    3256.443514000 seconds sys
+
+

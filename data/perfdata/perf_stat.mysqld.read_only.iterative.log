@@ -1,0 +1,80 @@
+mysqld.bolt.iterative.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.iterative.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.iterative.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,757,824,889,059      instructions:u                                                        
+    31,965,104,760      L1-icache-load-misses:u                                               
+     2,743,173,051      iTLB-load-misses:u                                                    
+   106,652,553,328      branch-misses:u                                                       
+
+     236.025767612 seconds time elapsed
+
+    3670.031084000 seconds user
+    3222.197317000 seconds sys
+
+
+mysqld.bolt.iterative.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.iterative.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.iterative.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,731,092,847,256      instructions:u                                                        
+    31,364,214,346      L1-icache-load-misses:u                                               
+     1,381,506,794      iTLB-load-misses:u                                                    
+   106,014,803,446      branch-misses:u                                                       
+
+     237.124388167 seconds time elapsed
+
+    3603.781160000 seconds user
+    3245.403543000 seconds sys
+
+
+mysqld.bolt.iterative.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.iterative.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.iterative.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,773,765,808,835      instructions:u                                                        
+    31,377,251,214      L1-icache-load-misses:u                                               
+     2,470,730,217      iTLB-load-misses:u                                                    
+   106,189,004,108      branch-misses:u                                                       
+
+     236.048390835 seconds time elapsed
+
+    3659.819422000 seconds user
+    3224.731658000 seconds sys
+
+
+mysqld.bolt.iterative.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.iterative.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.iterative.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,766,239,146,244      instructions:u                                                        
+    31,714,869,551      L1-icache-load-misses:u                                               
+     2,708,887,402      iTLB-load-misses:u                                                    
+   106,767,666,842      branch-misses:u                                                       
+
+     235.994197086 seconds time elapsed
+
+    3680.130844000 seconds user
+    3216.930210000 seconds sys
+
+
+mysqld.bolt.iterative.read_only: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.iterative.read_only: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.iterative.read_only --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 7,694,218,769,662      instructions:u                                                        
+    31,084,291,525      L1-icache-load-misses:u                                               
+     2,471,724,987      iTLB-load-misses:u                                                    
+   104,849,211,075      branch-misses:u                                                       
+
+     236.302674870 seconds time elapsed
+
+    3603.670835000 seconds user
+    3211.102662000 seconds sys
+
+

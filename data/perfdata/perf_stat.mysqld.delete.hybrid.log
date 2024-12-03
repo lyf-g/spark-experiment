@@ -1,0 +1,80 @@
+mysqld.bolt.hybrid.delete: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hybrid.delete: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hybrid.delete --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,328,412,963,957      instructions:u                                                        
+    19,295,704,645      L1-icache-load-misses:u                                               
+       904,742,400      iTLB-load-misses:u                                                    
+    70,841,107,828      branch-misses:u                                                       
+
+     236.008730284 seconds time elapsed
+
+    3514.819656000 seconds user
+    2449.521704000 seconds sys
+
+
+mysqld.bolt.hybrid.delete: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hybrid.delete: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hybrid.delete --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,265,196,778,007      instructions:u                                                        
+    19,792,022,934      L1-icache-load-misses:u                                               
+       721,068,512      iTLB-load-misses:u                                                    
+    70,545,530,135      branch-misses:u                                                       
+
+     236.016488442 seconds time elapsed
+
+    3555.103074000 seconds user
+    2409.033150000 seconds sys
+
+
+mysqld.bolt.hybrid.delete: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hybrid.delete: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hybrid.delete --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,294,498,813,877      instructions:u                                                        
+    19,331,225,625      L1-icache-load-misses:u                                               
+     2,151,439,703      iTLB-load-misses:u                                                    
+    70,141,093,632      branch-misses:u                                                       
+
+     235.954714894 seconds time elapsed
+
+    3571.308352000 seconds user
+    2418.680446000 seconds sys
+
+
+mysqld.bolt.hybrid.delete: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hybrid.delete: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hybrid.delete --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,276,440,296,995      instructions:u                                                        
+    19,020,593,429      L1-icache-load-misses:u                                               
+     2,690,955,606      iTLB-load-misses:u                                                    
+    70,181,920,325      branch-misses:u                                                       
+
+     236.122696579 seconds time elapsed
+
+    3539.679752000 seconds user
+    2424.660140000 seconds sys
+
+
+mysqld.bolt.hybrid.delete: Can't open shared library '/home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so' (errno: 2 /home/huangbo_lab/mysql-server/lib/plugin/component_reference_cache.so: cannot open shared object file: No such file or director)
+mysqld.bolt.hybrid.delete: Cannot load component from specified URN: 'file://component_reference_cache'.
+
+ Performance counter stats for 'taskset -c 11-60 /home/huangbo_lab/BOLTest/data/bolted/mysqld.bolt.hybrid.delete --user=root --port=4308 --log-error=ocolos.err --pid-file=ocolos.pid':
+
+ 6,262,255,243,784      instructions:u                                                        
+    19,855,269,571      L1-icache-load-misses:u                                               
+     2,900,417,332      iTLB-load-misses:u                                                    
+    70,745,024,009      branch-misses:u                                                       
+
+     236.215945639 seconds time elapsed
+
+    3520.512051000 seconds user
+    2418.646069000 seconds sys
+
+

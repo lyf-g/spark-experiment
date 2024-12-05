@@ -21,12 +21,12 @@ data = data[data[category_column] != 'delete']
 for event in events:
     plt.figure(figsize=(10, 6))
     x_positions = range(len(data[x_label_column].unique()))
-    bar_width = 0.2
+    bar_width = 0.3
     modes = data[category_column].unique()
 
     # 动态设置Y轴范围
     y_max = float(data[event].astype(float).max())
-    y_ticks = range(0, int(y_max) + 2, 100000)
+    y_ticks = range(0, int(y_max) + 2, 10000)
     y_labels = [str(y) for y in y_ticks]
 
     for i, mode in enumerate(modes):

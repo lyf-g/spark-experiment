@@ -84,7 +84,7 @@ def process_files(input_dir, output_dir, csv_output):
     files = [f for f in os.listdir(input_dir) if f.endswith('.sysbench.txt')]
     with open(csv_output, 'a', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(['Mode', 'Run Type', 'Average TPS'])
+        csv_writer.writerow(['Mode', 'RunType', 'AverageTPS'])
 
         for file_index, file in enumerate(files):
             file_path = os.path.join(input_dir, file)

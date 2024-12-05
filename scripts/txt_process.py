@@ -1,23 +1,34 @@
 import os
 import re
 import csv
+import io
 import matplotlib.pyplot as plt
+from pyspark import SparkFiles
+from pyspark.sql import SparkSession
 
-def plot_tps_trend(file_path, output_dir, bolt_mode=None, run_type=None):
+
+def plot_tps_trend(spark, file_path, output_dir, bolt_mode, run_type):
     """ Plot the TPS trends for given runs within a file. """
     tps_re = re.compile(r"transactions:\s+\d+\s+\((\d+\.\d+) per sec\.\)")
     if bolt_mode is None or run_type is None:
-        match = re.search(r'([^.]+)\.([^.]+)\.', file_path)
+        match = re.search(r'([^.]+)\.([^.]+)\.', file_path.split('/')[-1])
         bolt_mode = match.group(1)
         run_type = match.group(2)
  
-    with open(file_path, "r") as file:
-        data = file.read()
+    data = spark.sparkContext.textFile(file_path).collect()
  
     pattern = re.compile(r"\[ (\d+)s \].*?tps: ([\d.]+)")
-    results = pattern.findall(data)
-    avg_tps = tps_re.findall(data)
- 
+
+    results = []
+    avg_tps = []
+
+    for line in data:
+        matches = pattern.findall(line)
+        results.extend(matches)
+    
+        avg_matches = tps_re.findall(line)
+        avg_tps.extend(avg_matches)
+
     test_runs = []
     current_run = []
     current_second = 1
@@ -35,6 +46,9 @@ def plot_tps_trend(file_path, output_dir, bolt_mode=None, run_type=None):
     if current_run:
         test_runs.append(current_run)
  
+    Path = spark._jvm.org.apache.hadoop.fs.Path
+    fs = spark._jvm.org.apache.hadoop.fs.FileSystem.get(spark.sparkContext._jsc.hadoopConfiguration())
+
     avg_values = []
     for i, run in enumerate(test_runs, start=1):
             seconds, tps_values = zip(*run)
@@ -70,37 +84,38 @@ def plot_tps_trend(file_path, output_dir, bolt_mode=None, run_type=None):
             plt.legend()
             plt.tight_layout()
 
-            output_file = os.path.join(output_dir, f"{bolt_mode}_{run_type}_tps_trend_{i}.png")
-            plt.savefig(output_file, format="png")
-            plt.close()
+            output_file = f"{output_dir}{bolt_mode}_{run_type}_tps_trend_{i}.png"
+            output_path = Path(output_file)
+            # plt.savefig(output_file, format="png")
+            # plt.close()
             
+            buffer = io.BytesIO()
+            plt.savefig(buffer, format='png')
+            plt.close()
+            buffer.seek(0)
+            data_bytes = buffer.read()
+            output_stream = fs.create(output_path, True)
+            output_stream.write(bytearray(data_bytes))
+            output_stream.close()
+
             avg_values.append(avg_value)
 
     return avg_values
 
 
-def process_files(input_dir, output_dir, csv_output):
+def process(spark, file_list, csv_output, img_path):
     """ Process all files in the directory, handle plot and logging. """
-    files = [f for f in os.listdir(input_dir) if f.endswith('.sysbench.txt')]
-    with open(csv_output, 'a', newline='') as csv_file:
-        csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(['Mode', 'RunType', 'AverageTPS'])
+    csv_data = []
+    for file_path in file_list:
+        file_name = file_path.split('/')[-1]
+        run_type = file_name.split('.')[1]
+        mode = file_name.split('.')[0]
+        avg_tps_values = plot_tps_trend(spark, file_path, img_path, mode, run_type)    
+        average = sum(avg_tps_values) / len(avg_tps_values)
+        csv_data.append((mode, run_type, average))
+    ## write to csv
+    columns = ["Mode", "RunType", "AverageTPS"]
+    df = spark.createDataFrame(csv_data, schema=columns)
+    df.coalesce(1).write.mode("overwrite").option("header", "true").csv(csv_output)
 
-        for file_index, file in enumerate(files):
-            file_path = os.path.join(input_dir, file)
-            mode, run_type = file.split('.')[:2]
-            avg_tps_values = plot_tps_trend(file_path, output_dir, mode, run_type)
-            
-            average = sum(avg_tps_values) / 5
-            csv_writer.writerow([mode, run_type, average])
 
-
-if __name__ == '__main__':
-    data_directory = './data/script_output'
-    img_directory = './imgs'
-    csv_file_path = './csvs/mysqld_tps.csv'
-    os.makedirs(img_directory, exist_ok=True)
-    os.makedirs(os.path.dirname(csv_file_path), exist_ok=True)
-    process_files(data_directory, img_directory, csv_file_path)
-
-    print('Data processing complete.')

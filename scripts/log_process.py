@@ -66,7 +66,7 @@ def parse_mean(parse):
     return icache_mean, iTLB_mean, branch_mean
 
 
-def process(file_list, output_path=None):
+def process(spark, file_list, output_path=None):
     """
     :param file_list: 包含全部文件的绝对路径的list
     :param output_path: 本地输出csv的路径，None则不输出到磁盘
@@ -85,7 +85,7 @@ def process(file_list, output_path=None):
         run_type = file_name.split('.')[2]
         mode = file_name.split('.')[3]
         log_file_path = file_path
-        parsed_metrics = parse_log_file(log_file_path)
+        parsed_metrics = parse_log_file(spark, log_file_path)
         parsed_metrics = parse_compute(parsed_metrics)
         icache_mean, iTLB_mean, branch_mean = parse_mean(parsed_metrics)
 

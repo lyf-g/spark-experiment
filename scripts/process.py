@@ -2,11 +2,15 @@ from pyspark import SparkFiles
 from pyspark.sql import SparkSession
 import os
 from custom_modules import log_process
+from custom_modules import txt_process
+
 
 server_host = "hdfs://hadoop01:9000"
 log_directory = f"{server_host}/data/perfdata/"
 log_output_path = f"{server_host}/data/csvs/mysqld_micro.csv"
-sysbench_directory = f"{server_host}/data/script_output/"
+txt_directory = f"{server_host}/data/script_output/"
+txt_output_path = f"{server_host}/data/csvs/mysqld_tps.csv"
+img_path = f"{server_host}/data/imgs/"
 
 
 def list_hdfs_files(spark, directory):
@@ -23,7 +27,12 @@ def list_hdfs_files(spark, directory):
 
 def solve_log_files(spark, directory, output_path):
     file_list = list_hdfs_files(spark, directory)
-    df = log_process.process(spark, file_list,output_path)
+    df = log_process.process(spark, file_list, output_path)
+
+
+def solve_txt_files(spark, directory, output_path, img_path):
+    file_list = list_hdfs_files(spark, directory)
+    txt_process.process(spark, file_list, output_path, img_path)
 
 
 if __name__ == "__main__":
@@ -32,5 +41,6 @@ if __name__ == "__main__":
         .getOrCreate()
 
     solve_log_files(spark, log_directory, log_output_path)
+    solve_txt_files(spark, txt_directory, txt_output_path,img_path)
 
     spark.stop()

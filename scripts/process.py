@@ -1,9 +1,7 @@
 from pyspark import SparkFiles
 from pyspark.sql import SparkSession
 import os
-from custom_modules import log_process
-from custom_modules import txt_process
-
+from custom_modules import log_process,txt_process,tps_comparison,event_comparison
 
 server_host = "hdfs://hadoop01:9000"
 log_directory = f"{server_host}/data/perfdata/"
@@ -34,13 +32,17 @@ def solve_txt_files(spark, directory, output_path, img_path):
     file_list = list_hdfs_files(spark, directory)
     txt_process.process(spark, file_list, output_path, img_path)
 
+def draw_imgs(spark):
+    # tps_comparison.process(spark, txt_output_path, img_path)
+    event_comparison.process(spark, log_output_path,img_path)
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName("ListHDFSFiles") \
+        .appName("spark_experiment") \
         .getOrCreate()
 
-    solve_log_files(spark, log_directory, log_output_path)
-    solve_txt_files(spark, txt_directory, txt_output_path,img_path)
+    #solve_log_files(spark, log_directory, log_output_path)
+    #solve_txt_files(spark, txt_directory, txt_output_path,img_path)
+    draw_imgs(spark)
 
     spark.stop()

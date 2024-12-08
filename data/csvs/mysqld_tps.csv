@@ -1,0 +1,17 @@
+Mode,RunType,AverageTPS
+hotness,delete,440869.3439999999
+hotness,read_only,53161.78200000001
+hotness,read_write,3699.8779999999997
+hotness,write_only,3808.486
+hybrid,delete,434926.714
+hybrid,read_only,53985.2
+hybrid,read_write,3710.222
+hybrid,write_only,3815.304
+iterative,delete,432682.77800000005
+iterative,read_only,51811.259999999995
+iterative,read_write,3699.278
+iterative,write_only,3807.578
+origin,delete,381739.2
+origin,read_only,46167.348
+origin,read_write,3670.6400000000003
+origin,write_only,3819.7920000000004

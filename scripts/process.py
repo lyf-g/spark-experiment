@@ -33,7 +33,7 @@ def solve_txt_files(spark, directory, output_path, img_path):
     txt_process.process(spark, file_list, output_path, img_path)
 
 def draw_imgs(spark):
-    # tps_comparison.process(spark, txt_output_path, img_path)
+    tps_comparison.process(spark, txt_output_path, img_path)
     event_comparison.process(spark, log_output_path,img_path)
 
 if __name__ == "__main__":
@@ -41,8 +41,8 @@ if __name__ == "__main__":
         .appName("spark_experiment") \
         .getOrCreate()
 
-    #solve_log_files(spark, log_directory, log_output_path)
-    #solve_txt_files(spark, txt_directory, txt_output_path,img_path)
+    solve_log_files(spark, log_directory, log_output_path)
+    solve_txt_files(spark, txt_directory, txt_output_path,img_path)
     draw_imgs(spark)
 
     spark.stop()

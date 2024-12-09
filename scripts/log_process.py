@@ -2,7 +2,6 @@
 
 from pyspark import SparkFiles
 from pyspark.sql import SparkSession
-import pandas as pd
 import re
 
 
@@ -109,8 +108,6 @@ def process(spark, file_list, output_path=None):
     columns = ["run_type", "mode", "icache_misses(MPKI)_mean", "iTLB_misses(MPKI)_mean", "branch_misses(MPKI)_mean"]
     df = spark.createDataFrame(rows, schema=columns)
     df.write.mode("overwrite").option("header","true").csv(output_path)
-    # df = pd.DataFrame(data)
-    # df.to_csv(output_path, index=False)
     return df
 
 if __name__ == '__main__':

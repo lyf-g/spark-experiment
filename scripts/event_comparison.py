@@ -1,6 +1,6 @@
 import os
 import io
-import pandas as pd
+from pyspark.sql import functions as F
 import matplotlib.pyplot as plt
 from pyspark import SparkFiles
 from pyspark.sql import SparkSession
@@ -10,31 +10,33 @@ def process(spark, csv_path, img_path):
     fs = spark._jvm.org.apache.hadoop.fs.FileSystem.get(spark.sparkContext._jsc.hadoopConfiguration())
     Path = spark._jvm.org.apache.hadoop.fs.Path
     data = spark.read.csv(csv_path, header=True, inferSchema=True)
-    data = data.toPandas()    
     # 提取事件列（即指标列）
     category_column = data.columns[0]  # 假设第一列是分类列（比如 mode）
     x_label_column = data.columns[1]  # 假设第二列是 x 轴的分类列
     events = data.columns[2:]
-
-    data = data.loc[data[x_label_column] != x_label_column]
+    data = data.filter(data[x_label_column].isNotNull())
+    modes = data.select(category_column).distinct().rdd.flatMap(lambda x: x).collect()
+    x_labels = data.select(x_label_column).distinct().rdd.flatMap(lambda x: x).collect()
+    x_positions = range(len(x_labels))
 
     # 为每个事件生成柱状图
     for event in events:
         plt.figure(figsize=(10, 6))
-        x_positions = range(len(data[x_label_column].unique()))
         bar_width = 0.2
-        modes = data[category_column].unique()
 
         # 动态设置Y轴范围
-        y_max = float(data[event].astype(float).max())
+        y_max = data.select(F.max(F.col(event).cast("float"))).first()[0]
         y_ticks = range(0, int(y_max) + 2)
         y_labels = [str(y) for y in y_ticks]
 
         for i, mode in enumerate(modes):
-            subset = data[data[category_column] == mode]
+            subset = data.filter(data[category_column] == mode).select(x_label_column, event)
+            mode_data = subset.groupBy(x_label_column).agg(F.sum(event).cast("float").alias(event)).orderBy(x_label_column)
+            mode_values = mode_data.rdd.map(lambda row: row[1]).collect()
+
             plt.bar(
                 [pos + i * bar_width for pos in x_positions],
-                subset[event].astype(float),
+                mode_values,
                 bar_width,
                 label=mode,
             )
@@ -42,7 +44,7 @@ def process(spark, csv_path, img_path):
         # 设置x轴刻度
         plt.xticks(
             [pos + (len(modes) - 1) * bar_width / 2 for pos in x_positions],
-            data[x_label_column].unique(),
+            x_labels,
         )
 
         # 设置图表标题和标签
@@ -53,8 +55,10 @@ def process(spark, csv_path, img_path):
 
         # 显示柱状图顶部的值
         for i, mode in enumerate(modes):
-            subset = data[data[category_column] == mode]
-            for j, value in enumerate(subset[event].astype(float)):
+            subset = data.filter(data[category_column] == mode).select(x_label_column, event)
+            mode_data = subset.groupBy(x_label_column).agg(F.sum(event).cast("float").alias(event)).orderBy(x_label_column)
+            mode_values = mode_data.rdd.map(lambda row: row[1]).collect()
+            for j, value in enumerate(mode_values):
                 x = j + i * bar_width
                 plt.text(
                     x, value + 0.1, f"{value:.2f}", ha="center", va="bottom", fontsize=8
